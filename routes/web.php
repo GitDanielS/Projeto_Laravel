@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 |
 */
 
+// Para criar uma rota usa "Route::view("/nomedaURL", "nome da views");"
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -44,3 +46,5 @@ Route::post("/salva-usuario", function(Request $request){
 
     return "Salvo com sucesso!!";
 })->name('salva-usuario');
+
+Route::view('/login', 'login');

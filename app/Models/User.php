@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        // Cripytografando a senha
         'email_verified' => 'datatime',
         'password' => 'hashed',
     ];
