@@ -48,3 +48,19 @@ Route::post("/salva-usuario", function(Request $request){
 })->name('salva-usuario');
 
 Route::view('/login', 'login');
+
+Route::post('/logar', function(Request $request){
+
+    $credentials = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
+
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+
+        // return redirect()->intended('dashboard');
+        return "Logado com sucesso";
+    }
+    return "ERRO ao logar!!";
+});
