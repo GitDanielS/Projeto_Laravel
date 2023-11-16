@@ -4,10 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+// Comandos executados no terminal
 // Para criar o banco no laravel usa o comando "php artisan migrate"
 // para atualizar usa o comando "php artisan migrate:refresh"
 // Para criar uma nova tabela usa o comando "php artisan make:migration nome da Tabela"
 // Para criação de coluna utiliza $table->string(email) tudo na ordem $table->tipodacoluna(nome da coluna);
+// Para criar uma view pelo terminal usa o comando php artisan make:view inicial 
 
 return new class extends Migration
 {
