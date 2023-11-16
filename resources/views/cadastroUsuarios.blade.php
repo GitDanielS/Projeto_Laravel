@@ -10,7 +10,7 @@
     <title>Cadastro de Usuarios</title>
 </head>
 <body>
-  <h1 class="w-full text-center font-bold">Cadastro de Usuários</h1>
+  <h1 class="w-full text-center font-bold mt-6">Cadastro de Usuários</h1>
 
   <form action="{{route('salva-usuario')}}" method="post" class="form-control max-w-md m-auto">
 
@@ -52,7 +52,7 @@
     </div>
 
     <br>  
-    <button class="btn btn-success">Salvar</button>
+    <button class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Salvar</button>
 
   </form>
 

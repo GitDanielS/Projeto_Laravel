@@ -48,7 +48,7 @@ Route::post("/salva-usuario", function(Request $request){
     $usuario->password = $request->input('senha');
     $usuario->save();
 
-    return "Salvo com sucesso!!";
+    return redirect('/');
 })->name('salva-usuario');
 
 Route::view('/login', 'login')->name('login');
@@ -65,21 +65,30 @@ Route::post('/logar', function(Request $request){
 
         // return redirect()->intended('dashboard');
         return redirect()->intended('/');
+    }else{
+        return redirect()->intended('/login');
     }
-    return "ERRO ao logar!!Usuario ou Senha invalida";
 });
 
-Route::middleware(['auth'])->group(function (){
-    Route::view('/cria-post', 'criaPost');
-    Route::post('/salva-post', function(Request $request){
-        $post = new Post();
-    
-        $post->user_id= Auth::id();
-        $post->mensagem = $request->mensagem;
-    
-        $post->save();
-    
-        return redirect('/');
-    }
-);
+    Route::middleware(['auth'])->group(function (){
+        Route::view('/cria-post', 'criaPost');
+        Route::post('/salva-post', function(Request $request){
+            $post = new Post();
+        
+            $post->user_id= Auth::id();
+            $post->mensagem = $request->mensagem;
+        
+            $post->save();
+        
+            return redirect('/');
+        }
+    );
 });
+
+Route::get('/deslogar',function (Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/')->with('sucesso', 'Deslogado com sucesso!');
+})->name('logout');
