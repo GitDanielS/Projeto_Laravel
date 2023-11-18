@@ -10,17 +10,6 @@
     <title>Inicial - YRede</title>
 </head>
 <body class="pt-[150px]">
-    @if(session('sucesso'))
-        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-200" role="alert" id="successAlert">
-            <span class="font-medium">{{session('sucesso')}}</span>
-        </div>
-        <script>
-        // Adiciona um script JavaScript para esconder o alerta após 3 segundos
-        setTimeout(function(){
-            document.getElementById('successAlert').style.display = 'none';
-        }, 2500);
-        </script>
-    @endif  
 
 <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
